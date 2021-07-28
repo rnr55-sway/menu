@@ -1,0 +1,12 @@
+{
+    "items": [{
+        "name": "Save to log",
+        "cmd": "test"
+    }, {}, {
+        "name": "Save to log2",
+        "cmd": "test2"
+    }],
+    "class": "~rust-menu",
+    "x": 2560,
+    "y": 22
+}
