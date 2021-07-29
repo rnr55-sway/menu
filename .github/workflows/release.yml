@@ -12,10 +12,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Install toolchain 
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
       - name: Build project 
-        container: rust
-        run: |
-          cargo build --release
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
