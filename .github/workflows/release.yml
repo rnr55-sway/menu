@@ -8,11 +8,12 @@ name: Release
 jobs:
   build:
     name: Release
-    runs-on: rust
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build project 
+        container: rust
         run: |
           cargo build --release
       - name: Create Release
