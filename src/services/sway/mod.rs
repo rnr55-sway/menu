@@ -1,5 +1,5 @@
-mod service;
 mod errors;
+mod service;
 
-pub use service::*;
 pub use errors::*;
+pub use service::*;

@@ -7,7 +7,7 @@ pub enum Error {
     #[error("Cannot read stream: {0}")]
     LockError(std::cell::BorrowMutError),
     #[error("Cannot parse: {0}")]
-    ParseError(serde_json::Error),
+    ParseError(serde_json::Error)
 }
 
 impl super::super::Error for Error {}

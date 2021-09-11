@@ -1,9 +1,11 @@
 {
     "items": [{
         "name": "Save to log",
+        "icon": "system-shutdown",
         "cmd": "test"
     }, {}, {
         "name": "Save to log2",
+        "icon": "list-add",
         "cmd": "test2"
     }],
     "class": "~rust-menu",

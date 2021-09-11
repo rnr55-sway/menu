@@ -10,7 +10,7 @@ pub type Anchor = gtk::Label;
 pub struct Window {
     window: gtk::Window,
     anchor: Rc<Anchor>,
-    model: menu::Menu,
+    model: menu::Menu
 }
 
 impl Window {
@@ -37,7 +37,7 @@ impl Window {
         Window {
             window: window,
             anchor: Rc::new(label),
-            model: dom_menu,
+            model: dom_menu
         }
     }
 
@@ -51,7 +51,7 @@ impl Window {
                 println!("{}", e);
                 gtk::main_quit();
             }
-            _ => (),
+            _ => ()
         };
 
         let dom_menu = self.model.clone();
@@ -69,25 +69,24 @@ impl Window {
                 label.upgrade().unwrap().as_ref(),
                 gdk::Gravity::SouthEast,
                 gdk::Gravity::NorthEast,
-                None,
+                None
             );
         });
 
-        self.window.connect_draw(|_w: &gtk::Window, c: &cairo::Context| {
-            match c.paint_with_alpha(0.0) {
-                Err(e) => println!("{}", e),
-                Ok(_) => ()
-            }
+        self.window
+            .connect_draw(|_w: &gtk::Window, c: &cairo::Context| {
+                match c.paint_with_alpha(0.0) {
+                    Err(e) => println!("{}", e),
+                    Ok(_) => ()
+                }
 
-            gtk::Inhibit(false)
-        });
+                gtk::Inhibit(false)
+            });
 
         self.window.show_all();
     }
 
-    fn replace_sway_config(
-        class: &String
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    fn replace_sway_config(class: &String) -> Result<(), Box<dyn std::error::Error>> {
         let mut sway = sway::Sway::new()?;
 
         sway.run(&format!(

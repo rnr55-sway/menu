@@ -6,7 +6,7 @@ use super::builder;
 use super::Error;
 
 pub struct App {
-    root: builder::Window,
+    root: builder::Window
 }
 
 impl Into<gdk::Gravity> for Gravity {
@@ -17,7 +17,7 @@ impl Into<gdk::Gravity> for Gravity {
             Gravity::West => West,
             Gravity::East => East,
             Gravity::NorthWest => NorthWest,
-            Gravity::NorthEast => NorthEast,
+            Gravity::NorthEast => NorthEast
         }
     }
 }
@@ -34,7 +34,7 @@ impl App {
         gtk::StyleContext::add_provider_for_screen(
             &screen,
             &provider,
-            gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
+            gtk::STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
         let display = gdk::Display::default().ok_or(Error::DefaultDisplay)?;
@@ -45,7 +45,7 @@ impl App {
             .geometry();
 
         let mut a = App {
-            root: builder::Window::new(geometry.width, geometry.height, dom_menu),
+            root: builder::Window::new(geometry.width, geometry.height, dom_menu)
         };
 
         a.connect();
@@ -59,6 +59,5 @@ impl App {
         gtk::main();
     }
 
-    fn connect(&mut self) {
-    }
+    fn connect(&mut self) {}
 }

@@ -1,4 +1,3 @@
-
 use crate::domain::menu;
 
 use super::super::*;
@@ -24,13 +23,13 @@ impl Parser for Example {
         m.add(menu::Item::Cmd(menu::Command {
             icon: String::new(),
             name: String::from("Save to log"),
-            command: String::from("test"),
+            command: String::from("test")
         }))
         .add(menu::Item::Separator)
         .add(menu::Item::Cmd(menu::Command {
             icon: String::new(),
             name: String::from("Save to log 2"),
-            command: String::from("test2"),
+            command: String::from("test2")
         }));
 
         Ok(m)

@@ -6,13 +6,13 @@ pub enum Gravity {
     NorthWest,
     West,
     NorthEast,
-    East,
+    East
 }
 
 #[derive(Debug, Error)]
 pub enum Error<'a> {
     #[error("Wrong value (`{0}`) of gravity")]
-    WrongValue(&'a str),
+    WrongValue(&'a str)
 }
 
 impl<'a> TryFrom<&'a str> for Gravity {
@@ -24,7 +24,7 @@ impl<'a> TryFrom<&'a str> for Gravity {
             "north-west" => Ok(Gravity::NorthWest),
             "north-east" => Ok(Gravity::NorthEast),
             "" => Ok(Gravity::default()),
-            _ => Err(Error::WrongValue(s)),
+            _ => Err(Error::WrongValue(s))
         }
     }
 }

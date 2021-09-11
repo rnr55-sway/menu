@@ -8,13 +8,13 @@ use super::super::*;
 use super::Error;
 
 pub struct Json<R: std::io::Read> {
-    reader: RefCell<R>,
+    reader: RefCell<R>
 }
 
 impl<R: std::io::Read> Json<R> {
     pub fn new(reader: R) -> Json<R> {
         Json {
-            reader: RefCell::new(reader),
+            reader: RefCell::new(reader)
         }
     }
 }
@@ -34,12 +34,12 @@ impl From<serde_json::Value> for menu::Menu {
                     Some(s) => menu::Item::Cmd(menu::Command {
                         name: String::from(s),
                         icon: String::from(v["icon"].as_str().unwrap_or_default()),
-                        command: String::from(v["cmd"].as_str().unwrap_or_default()),
+                        command: String::from(v["cmd"].as_str().unwrap_or_default())
                     }),
-                    None => menu::Item::Separator,
+                    None => menu::Item::Separator
                 })
                 .collect(),
-            None => vec![],
+            None => vec![]
         };
 
         m

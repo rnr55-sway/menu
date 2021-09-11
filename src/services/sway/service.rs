@@ -2,12 +2,12 @@ use super::ConnectionError;
 use super::RunError;
 
 pub struct Sway {
-    connection: swayipc::Connection,
+    connection: swayipc::Connection
 }
 
 impl Sway {
     pub fn new() -> Result<Self, ConnectionError> {
-        Ok(Sway{
+        Ok(Sway {
             connection: swayipc::Connection::new()?
         })
     }
@@ -22,7 +22,7 @@ impl Sway {
                     None => RunError::UnknownErr
                 };
 
-                return Err(err)
+                return Err(err);
             }
         }
 
